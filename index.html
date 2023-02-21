@@ -170,8 +170,8 @@
           <li class="l-section section">
             <div class="hire">
               
-              <!-- checkout formspree.io for easy form setup -->
-              <form class="work-request">
+              <h2>Contact Us</h2>
+              <form class="work-request" action="mailto:sirkinggreat@gmail.com" method="post" enctype="text/plain">
                 
                 <div class="work-request--information">
                   <div class="information-name">
@@ -182,8 +182,10 @@
                     <input id="email" type="email" spellcheck="false">
                     <label for="email">Email</label>
                   </div>
+                  
+                  
                 </div>
-                <input type="submit" value="Send Request">
+                <input type="submit" value="Mail here!">
               </form>
             </div>
           </li>
@@ -199,7 +201,20 @@
     <li>Hire us</li>
   </ul>
 </div>
+<script>
+  function sendMail(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const body = `From : \nName: ${name}\nEmail: ${email}\n`;
+    const subject = "Contact from website";
+    const mailto = "mailto:sirkinggreat@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    window.location.href = mailto;
+  }
 
+  const form = document.querySelector(".work-request");
+  form.addEventListener("submit", sendMail);
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="assets/js/functions-min.js"></script>
